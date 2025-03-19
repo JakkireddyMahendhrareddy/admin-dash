@@ -1,3 +1,80 @@
+import { useState } from "react";
+import AdminProfile from "./AdminProfile";
+import { HostelInfo } from "./HostelInfo";
+
+import {
+  FaUser,
+  FaBed,
+  FaUsers,
+  FaMoneyBill,
+  FaUtensils,
+  FaClipboardList,
+  FaTools,
+  FaUserShield,
+  FaChartBar,
+} from "react-icons/fa";
+
+const sections = [
+  { id: "admin", title: "Admin Profile", icon: <FaUser /> },
+  { id: "hostel", title: "Hostel Info", icon: <FaBed /> },
+  { id: "students", title: "Student Management", icon: <FaUsers /> },
+  { id: "fees", title: "Fees & Payments", icon: <FaMoneyBill /> },
+  { id: "mess", title: "Mess & Food", icon: <FaUtensils /> },
+  { id: "attendance", title: "Attendance & Leaves", icon: <FaClipboardList /> },
+  { id: "maintenance", title: "Maintenance & Complaints", icon: <FaTools /> },
+  { id: "visitors", title: "Visitor Management", icon: <FaUserShield /> },
+  { id: "reports", title: "Security Reports", icon: <FaChartBar /> },
+];
+
+export default function Dashboard() {
+  const [activeSection, setActiveSection] = useState(null);
+
+  const renderContent = () => {
+    switch (activeSection) {
+      case "admin":
+        return <AdminProfile />;
+      case "hostel":
+        return <HostelInfo />;
+      default:
+        return (
+          <p className="text-gray-500 text-center text-lg font-medium">
+            Click on a section to view details
+          </p>
+        );
+    }
+  };
+
+  return (
+    <div className="flex flex-col md:flex-row h-screen bg-blue-50">
+      {/* Sidebar */}
+      <aside className="w-full md:w-64 bg-blue-900 text-white shadow-lg p-5 md:h-screen fixed md:relative z-10">
+        <h2 className="text-2xl font-semibold flex items-center gap-2">
+          🏨 Hostel Admin
+        </h2>
+        <ul className="mt-5 space-y-2">
+          {sections.map((section) => (
+            <li
+              key={section.id}
+              onClick={() => setActiveSection(section.id)}
+              className={`flex items-center gap-3 py-3 px-4 rounded-lg cursor-pointer transition-all text-lg font-medium hover:bg-blue-700 ${
+                activeSection === section.id ? "bg-blue-500" : ""
+              }`}
+            >
+              <span className="text-xl">{section.icon}</span>
+              <span className="truncate">{section.title}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-1 p-4 ml-0 md:ml-14 mt-16 md:mt-0">
+        {renderContent()}
+      </main>
+    </div>
+  );
+}
+
 // import { useState } from "react";
 // import {
 //   FaUser,
@@ -179,8 +256,6 @@
 //   );
 // }
 
-
-
 // import { useState } from "react";
 // import  AdminProfile  from "./AdminProfile";
 // import  HostelInfo  from "./HostelInfo";
@@ -196,7 +271,6 @@
 //   FaUserShield,
 //   FaChartBar,
 // } from "react-icons/fa";
-
 
 // export default function Dashboard() {
 //   const [activeSection, setActiveSection] = useState(null);
@@ -232,7 +306,7 @@
 //       </aside>
 
 //       {/* Main Content */}
-      
+
 //     </div>
 //   );
 // }
@@ -268,7 +342,6 @@
 //           </p>
 //         )}
 //       </main>
-
 
 // const sections = [
 //     {
@@ -384,76 +457,156 @@
 //     },
 //   ];
 
+// import { useState } from "react";
+// import AdminProfile from "./AdminProfile";
+// import { HostelInfo } from "./HostelInfo";
 
-import { useState } from "react";
-import AdminProfile from "./AdminProfile";
-import {HostelInfo} from "./HostelInfo";
+// import {
+//   FaUser,
+//   FaBed,
+//   FaUsers,
+//   FaMoneyBill,
+//   FaUtensils,
+//   FaClipboardList,
+//   FaTools,
+//   FaUserShield,
+//   FaChartBar,
+// } from "react-icons/fa";
 
-import {
-  FaUser,
-  FaBed,
-  FaUsers,
-  FaMoneyBill,
-  FaUtensils,
-  FaClipboardList,
-  FaTools,
-  FaUserShield,
-  FaChartBar,
-} from "react-icons/fa";
+// const sections = [
+//   { id: "admin", title: "Admin Profile", icon: <FaUser /> },
+//   { id: "hostel", title: "Hostel Info", icon: <FaBed /> },
+//   { id: "students", title: "Student Management", icon: <FaUsers /> },
+//   { id: "fees", title: "Fees & Payments", icon: <FaMoneyBill /> },
+//   { id: "mess", title: "Mess & Food", icon: <FaUtensils /> },
+//   { id: "attendance", title: "Attendance & Leaves", icon: <FaClipboardList /> },
+//   { id: "maintenance", title: "Maintenance & Complaints", icon: <FaTools /> },
+//   { id: "visitors", title: "Visitor Management", icon: <FaUserShield /> },
+//   { id: "reports", title: "Security Reports", icon: <FaChartBar /> },
+// ];
 
-const sections = [
-  { id: "admin", title: "Admin Profile", icon: <FaUser /> },
-  { id: "hostel", title: "Hostel Info", icon: <FaBed /> },
-  { id: "students", title: "Student Management", icon: <FaUsers /> },
-  { id: "fees", title: "Fees & Payments", icon: <FaMoneyBill /> },
-  { id: "mess", title: "Mess & Food", icon: <FaUtensils /> },
-  { id: "attendance", title: "Attendance & Leaves", icon: <FaClipboardList /> },
-  { id: "maintenance", title: "Maintenance & Complaints", icon: <FaTools /> },
-  { id: "visitors", title: "Visitor Management", icon: <FaUserShield /> },
-  { id: "reports", title: "Security Reports", icon: <FaChartBar /> },
-];
+// export default function Dashboard() {
+//   const [activeSection, setActiveSection] = useState(null);
 
-export default function Dashboard() {
-  const [activeSection, setActiveSection] = useState(null);
+//   const renderContent = () => {
+//     switch (activeSection) {
+//       case "admin":
+//         return <AdminProfile />;
+//       case "hostel":
+//         return <HostelInfo />;
+//       default:
+//         return (
+//           <p className="text-gray-500 text-center">
+//             Click on a section to view details
+//           </p>
+//         );
+//     }
+//   };
 
-  const renderContent = () => {
-    switch (activeSection) {
-      case "admin":
-        return <AdminProfile />;
-      case "hostel":
-        return <HostelInfo />;
-      default:
-        return <p className="text-gray-500 text-center">Click on a section to view details</p>;
-    }
-  };
+//   return (
+//     <div className="flex flex-col md:flex-row h-screen bg-gray-50">
+//       {/* Sidebar */}
+//       <aside className="w-full md:w-64 bg-gray-300 shadow-md p-5">
+//         <h2 className="text-2xl font-semibold text-gray-800 flex items-center gap-2">
+//           🏨 Hostel Admin
+//         </h2>
+//         <ul className="mt-5 space-y-2">
+//           {sections.map((section) => (
+//             <li
+//               key={section.id}
+//               onClick={() => setActiveSection(section.id)}
+//               className={`flex items-center gap-3 py-2 px-4 rounded-lg cursor-pointer transition-all text-lg font-medium ${
+//                 activeSection === section.id
+//                   ? "bg-blue-500 text-white shadow-md"
+//                   : "text-gray-700 hover:bg-blue-100"
+//               }`}
+//             >
+//               <span className="text-xl">{section.icon}</span>
+//               <span className="truncate">{section.title}</span>
+//             </li>
+//           ))}
+//         </ul>
+//       </aside>
 
-  return (
-    <div className="flex flex-col md:flex-row h-screen bg-gray-50">
-      {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-gray-300 shadow-md p-5">
-        <h2 className="text-2xl font-semibold text-gray-800 flex items-center gap-2">
-          🏨 Hostel Admin
-        </h2>
-        <ul className="mt-5 space-y-2">
-          {sections.map((section) => (
-            <li
-              key={section.id}
-              onClick={() => setActiveSection(section.id)}
-              className={`flex items-center gap-3 py-2 px-4 rounded-lg cursor-pointer transition-all text-lg font-medium ${
-                activeSection === section.id
-                  ? "bg-blue-500 text-white shadow-md"
-                  : "text-gray-700 hover:bg-blue-100"
-              }`}
-            >
-              <span className="text-xl">{section.icon}</span>
-              <span className="truncate">{section.title}</span>
-            </li>
-          ))}
-        </ul>
-      </aside>
+//       {/* Main Content */}
+//       <main className="flex-1 p-6">{renderContent()}</main>
+//     </div>
+//   );
+// }
 
-      {/* Main Content */}
-      <main className="flex-1 p-6">{renderContent()}</main>
-    </div>
-  );
-}
+// import { useState } from "react";
+// import AdminProfile from "./AdminProfile";
+// import { HostelInfo } from "./HostelInfo";
+
+// import {
+//   FaUser,
+//   FaBed,
+//   FaUsers,
+//   FaMoneyBill,
+//   FaUtensils,
+//   FaClipboardList,
+//   FaTools,
+//   FaUserShield,
+//   FaChartBar,
+// } from "react-icons/fa";
+
+// const sections = [
+//   { id: "admin", title: "Admin Profile", icon: <FaUser /> },
+//   { id: "hostel", title: "Hostel Info", icon: <FaBed /> },
+//   { id: "students", title: "Student Management", icon: <FaUsers /> },
+//   { id: "fees", title: "Fees & Payments", icon: <FaMoneyBill /> },
+//   { id: "mess", title: "Mess & Food", icon: <FaUtensils /> },
+//   { id: "attendance", title: "Attendance & Leaves", icon: <FaClipboardList /> },
+//   { id: "maintenance", title: "Maintenance & Complaints", icon: <FaTools /> },
+//   { id: "visitors", title: "Visitor Management", icon: <FaUserShield /> },
+//   { id: "reports", title: "Security Reports", icon: <FaChartBar /> },
+// ];
+
+// export default function Dashboard() {
+//   const [activeSection, setActiveSection] = useState(null);
+
+//   const renderContent = () => {
+//     switch (activeSection) {
+//       case "admin":
+//         return <AdminProfile />;
+//       case "hostel":
+//         return <HostelInfo />;
+//       default:
+//         return (
+//           <p className="text-gray-500 text-center text-lg font-medium">
+//             Click on a section to view details
+//           </p>
+//         );
+//     }
+//   };
+
+//   return (
+//     <div className="flex flex-col md:flex-row h-screen bg-blue-50">
+//       {/* Sidebar */}
+//       <aside className="w-full md:w-64 bg-blue-900 text-white shadow-lg p-5 md:h-screen fixed md:relative z-10">
+//         <h2 className="text-2xl font-semibold flex items-center gap-2">
+//           🏨 Hostel Admin
+//         </h2>
+//         <ul className="mt-5 space-y-2">
+//           {sections.map((section) => (
+//             <li
+//               key={section.id}
+//               onClick={() => setActiveSection(section.id)}
+//               className={`flex items-center gap-3 py-3 px-4 rounded-lg cursor-pointer transition-all text-lg font-medium hover:bg-blue-700 ${
+//                 activeSection === section.id ? "bg-blue-500" : ""
+//               }`}
+//             >
+//               <span className="text-xl">{section.icon}</span>
+//               <span className="truncate">{section.title}</span>
+//             </li>
+//           ))}
+//         </ul>
+//       </aside>
+
+//       {/* Main Content */}
+//       <main className="flex-1 p-6 ml-0 md:ml-64 mt-16 md:mt-0">
+//         {renderContent()}
+//       </main>
+//     </div>
+//   );
+// }
