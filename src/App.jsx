@@ -1,12 +1,12 @@
-import Dashboard from './components/Dashboard' 
-import './App.css'
+import Dashboard from './components/Dashboard';
+import './App.css';
 
 function App() {
-
   return (
-    <Dashboard/>
-
-  )
+    <div className="h-screen w-screen overflow-hidden">
+      <Dashboard />
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -1,6 +1,17 @@
 import { useState } from "react";
 import AdminProfile from "./AdminProfile";
-import { HostelInfo } from "./HostelInfo";
+import HostelInfo  from "./HostelInfo";
+import StudentMang from './StudentMang';
+import Fees from './Fees';
+import Mees from './Mees';
+import Attendance from './Attendance';
+import Maintenance from './Maintenance';
+import Visitors from './Visitors';
+import Reports from './Reports';
+
+
+
+
 
 import {
   FaUser,
@@ -35,6 +46,21 @@ export default function Dashboard() {
         return <AdminProfile />;
       case "hostel":
         return <HostelInfo />;
+      case "students":
+          return <StudentMang />;
+      case "fees":
+          return <Fees />;
+      case "mess":
+          return <Mees />;  
+      case "attendance":
+          return <Attendance />;
+      case "maintenance":
+          return <Maintenance />;
+      case "visitors":
+          return <Visitors />;
+      case "reports":
+          return <Reports />; 
+      
       default:
         return (
           <p className="text-gray-500 text-center text-lg font-medium">
@@ -45,9 +71,9 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-blue-50">
+    <div className="flex h-screen bg-blue-50">
       {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-blue-900 text-white shadow-lg p-5 md:h-screen fixed md:relative z-10">
+      <aside className="w-64 bg-blue-900 text-white shadow-lg p-5 fixed md:relative h-full md:h-auto z-10">
         <h2 className="text-2xl font-semibold flex items-center gap-2">
           🏨 Hostel Admin
         </h2>
@@ -68,7 +94,7 @@ export default function Dashboard() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-4 ml-0 md:ml-14 mt-16 md:mt-0">
+      <main className="flex-1 md:mb-10 md:ml-4 ml-0 h-screen pb-6 md:pb-10 overflow-y-auto">
         {renderContent()}
       </main>
     </div>
