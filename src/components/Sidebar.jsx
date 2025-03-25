@@ -19,6 +19,7 @@ import Maintenance from "./Maintenance";
 import Visitors from "./Visitors";
 import Reports from "./Reports";
 import Dashboard from "./Dashboard";
+import Topbar from "./Topbar";
 
 const sections = [
   { id: "admin", title: "Dashboard", icon: <FaUser /> },
@@ -77,8 +78,10 @@ export default function Sidebar() {
             <li
               key={section.id}
               onClick={() => setActiveSection(section.id)}
-              className={`flex items-center gap-3 py-3 px-4 rounded-lg cursor-pointer transition-all text-lg font-medium hover:bg-gray-700 ${
-                activeSection === section.id ? "bg-gray-600" : ""
+              className={`flex items-center gap-3 py-3 px-4 rounded-lg cursor-pointer transition-all duration-300 text-lg font-medium tracking-wide ${
+                activeSection === section.id
+                  ? "bg-yellow-500 text-gray-900 shadow-md"
+                  : "hover:bg-yellow-400 hover:text-gray-900"
               }`}
             >
               <span className="text-xl">{section.icon}</span>
@@ -88,14 +91,15 @@ export default function Sidebar() {
         </ul>
       </aside>
 
-      {/* Main Content with Horizontal & Vertical Scrolling */}
-      <main className="flex-1 p-6 bg-white rounded-md shadow-md overflow-hidden">
-        {/* <h1 className="text-2xl font-bold text-gray-700 mb-4">
-          {sections.find((s) => s.id === activeSection)?.title ||
-            "Welcome to Hostel Pro"}
-        </h1> */}
-        {/* Ensure full scrolling */}
-        <div className="h-full w-full overflow-x-auto overflow-y-auto p-4 border border-gray-200 rounded-lg">
+      {/* Main Content */}
+      <main className="flex-1 bg-white rounded-md shadow-md overflow-hidden relative">
+        {/* Fixed Topbar */}
+        <div className="fixed top-0 left-72 right-0 z-5 h-5 bg-white ">
+          <Topbar />
+        </div>
+
+        {/* Content Area */}
+        <div className="h-full w-full overflow-x-auto overflow-y-auto p-4 border border-gray-200 rounded-lg pt-16">
           {renderContent()}
         </div>
       </main>
