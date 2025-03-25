@@ -65,10 +65,10 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen w-screen bg-gray-100">
       {/* Sidebar */}
-      <aside className="w-72 bg-gray-900 text-white shadow-lg h-screen flex flex-col">
-        <div className="bg-yellow-500 text-gray-900 font-bold text-2xl py-4 px-5 text-center">
+      <aside className="w-72 bg-gray-700 text-white shadow-lg h-screen flex flex-col">
+        <div className="bg-gray-200 text-gray-900 font-bold text-2xl py-4 px-5 text-center">
           🏨 Hostel Pro
         </div>
 
@@ -89,13 +89,13 @@ export default function Sidebar() {
       </aside>
 
       {/* Main Content with Horizontal & Vertical Scrolling */}
-      <main className="flex-1 p-6 bg-white rounded-md shadow-md overflow-hidden">
+      <main className="flex-1 p-6 pb-20 bg-white rounded-md overflow-hidden">
         {/* <h1 className="text-2xl font-bold text-gray-700 mb-4">
           {sections.find((s) => s.id === activeSection)?.title ||
             "Welcome to Hostel Pro"}
         </h1> */}
         {/* Ensure full scrolling */}
-        <div className="h-full w-full overflow-x-auto overflow-y-auto p-4 border border-gray-200 rounded-lg">
+        <div className="h-full mt-16 bg-gray-100 overflow-x-auto overflow-y-auto p-4 border border-gray-200 rounded-lg">
           {renderContent()}
         </div>
       </main>

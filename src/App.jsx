@@ -4,9 +4,13 @@ import Topbar from "./components/Topbar";
 
 function App() {
   return (
-    <div className="h-screen w-screen overflow-hidden">
-      <Sidebar />
-      <Topbar />
+    <div className="h-screen w-screen overflow-hidden flex">
+      <div className="left-0 top-0 fixed">
+        <Sidebar />
+      </div>
+      <div className="top fixed right-0 left-72">
+        <Topbar />
+      </div>
     </div>
   );
 }

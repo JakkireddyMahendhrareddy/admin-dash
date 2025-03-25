@@ -1,20 +1,21 @@
 import React from "react";
+import { FaBell, FaUserCircle } from "react-icons/fa";
 
 const Topbar = () => {
   return (
-    <div className="flex justify-between items-center p-5 mb-5 bg-white rounded-lg shadow-md hover:bg-gray-100 transition-all">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-800">
-          Welcome back, Admin
-        </h1>
-        <p className="text-gray-600">Here's the latest hostel update.</p>
-      </div>
-      <button
-        className="bg-blue-500 text-white px-5 py-2 rounded-lg shadow-md hover:bg-blue-600 transition-all"
-        onClick={() => setShowAdminDetails(true)}
-      >
-        Dashboard
-      </button>
+    <div className="h-16 flex justify-end bg-transparent items-center p-5 mb-5 rounded-lg shadow-md">
+        <button
+          className="text-gray-700 text-2xl rounded hover:scale-140 transition-400 duration-150 mx-6"
+          onClick={() => setShowAdminDetails(true)}
+        >
+          <FaBell />
+        </button>
+        <button
+          className="text-gray-700 text-2xl rounded-lg hover:scale-140 transition-400 duration-150 mx-2"
+          onClick={() => setShowAdminDetails(true)}
+        >
+          <FaUserCircle />
+        </button>
     </div>
   );
 };
