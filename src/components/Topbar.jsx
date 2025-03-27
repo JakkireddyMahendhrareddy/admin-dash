@@ -1,21 +1,55 @@
 import React from "react";
-import { FaBell, FaUserCircle } from "react-icons/fa";
+import { FaBell, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Topbar = () => {
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    navigate("/profile");
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+
+    navigate("/login"); // Redirects to profile-page on logout click
+  };
+
   return (
-    <div className="h-16 flex justify-end bg-transparent items-center p-5 mb-5 rounded-lg shadow-md">
-        <button
-          className="text-gray-700 text-2xl rounded hover:scale-140 transition-400 duration-150 mx-6"
-          onClick={() => setShowAdminDetails(true)}
-        >
+    <div className="h-16 flex justify-between items-center bg-white p-4 shadow-md">
+      {/* Welcome Message */}
+      <div className="flex flex-col">
+        <h1 className="text-2xl font-bold text-gray-900">
+          Welcome back, Admin
+        </h1>
+        <p className="text-sm text-gray-600 mt-1">
+          Here are the latest updated details
+        </p>
+      </div>
+
+      {/* Icons Section */}
+      <div className="flex items-center space-x-4">
+        {/* Notification Icon */}
+        <button className="text-gray-700 text-2xl rounded-lg hover:scale-110 transition-transform duration-150">
           <FaBell />
         </button>
+
+        {/* Profile Icon */}
         <button
-          className="text-gray-700 text-2xl rounded-lg hover:scale-140 transition-400 duration-150 mx-2"
-          onClick={() => setShowAdminDetails(true)}
+          className="text-gray-700 text-2xl rounded-lg hover:scale-110 transition-transform duration-150"
+          onClick={handleProfileClick}
         >
           <FaUserCircle />
         </button>
+
+        {/* Logout Button */}
+        <button
+          className="text-red-600 text-xl rounded-lg hover:scale-110 transition-transform duration-150"
+          onClick={handleLogout}
+        >
+          <FaSignOutAlt />
+        </button>
+      </div>
     </div>
   );
 };

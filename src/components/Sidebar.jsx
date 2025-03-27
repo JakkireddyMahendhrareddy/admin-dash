@@ -68,8 +68,8 @@ export default function Sidebar() {
   return (
     <div className="flex h-screen w-screen bg-gray-100">
       {/* Sidebar */}
-      <aside className="w-72 bg-gray-700 text-white shadow-lg h-screen flex flex-col">
-        <div className="bg-gray-200 text-gray-900 font-bold text-2xl py-4 px-5 text-center">
+      <aside className="w-72 bg-gray-800 text-white shadow-lg h-screen flex flex-col">
+        <div className="bg-gradient-to-r from-teal-600 to-cyan-500 text-white font-bold text-3xl py-3 px-5 text-start shadow-md ">
           🏨 Hostel Pro
         </div>
 
@@ -80,8 +80,8 @@ export default function Sidebar() {
               onClick={() => setActiveSection(section.id)}
               className={`flex items-center gap-3 py-3 px-4 rounded-lg cursor-pointer transition-all duration-300 text-lg font-medium tracking-wide ${
                 activeSection === section.id
-                  ? "bg-yellow-500 text-gray-900 shadow-md"
-                  : "hover:bg-yellow-400 hover:text-gray-900"
+                  ? "bg-teal-600 text-white shadow-md"
+                  : "hover:bg-teal-500 hover:text-white hover:shadow-md"
               }`}
             >
               <span className="text-xl">{section.icon}</span>
@@ -91,15 +91,14 @@ export default function Sidebar() {
         </ul>
       </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 bg-white rounded-md shadow-md overflow-hidden relative">
+      <main className="flex-1 bg-gray-50 rounded-md shadow-md overflow-hidden relative">
         {/* Fixed Topbar */}
-        <div className="fixed top-0 left-72 right-0 z-5 h-5 bg-white ">
+        <div className="fixed top-0 left-72 right-0 z-5 h-5 bg-gray-50">
           <Topbar />
         </div>
 
         {/* Content Area */}
-        <div className="h-full w-full overflow-x-auto overflow-y-auto p-4 border border-gray-200 rounded-lg pt-16">
+        <div className="h-full w-full overflow-x-auto overflow-y-auto p-4 border border-gray-300 rounded-lg pt-16">
           {renderContent()}
         </div>
       </main>

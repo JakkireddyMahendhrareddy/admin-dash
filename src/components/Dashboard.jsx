@@ -60,7 +60,7 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="p-5 h-screen relative bg-gray-50">
+    <div className="p-5 h-screen  relative bg-gray-50">
       {/* Stats Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-5">
         {stats.map((stat, index) => (
