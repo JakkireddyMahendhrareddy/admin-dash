@@ -5,18 +5,17 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import Topbar from "./components/Topbar";
-import Profile from "./components/Profile";
-import Login from "./components/Login";
-import Registration from "./components/Registration";
-import Dashboard from "./components/Dashboard";
+import Sidebar from "./components/pages/Sidebar";
+import Profile from "./components/pages/Profile";
+import Login from "./components/pages/Login";
+import Registration from "./components/pages/Registration";
+import Dashboard from "./components/masters/Dashboard";
 import "./App.css";
 
 const Layout = () => (
   <div className="h-screen w-screen flex flex-col">
     <div className="flex flex-row flex-1 overflow-hidden">
-      <Sidebar />
+      <Sidebar/>
     </div>
   </div>
 );

@@ -10,16 +10,17 @@ import {
   FaUserShield,
   FaChartBar,
 } from "react-icons/fa";
-import HostelInfo from "./HostelInfo";
-import StudentMang from "./StudentMang";
-import Fees from "./Fees";
+import HostelListPage  from "../../components/masters/HostelInfo/HostelListPage";
+
+import StudentMang from "../../components/masters/StudentMang";
+import Fees from "../../components/masters/Fees";
 // import MessDetails from "./Mess";
-import Attendance from "./Attendance";
-import Maintenance from "./Maintenance";
-import Visitors from "./Visitors";
-import Reports from "./Reports";
-import Dashboard from "./Dashboard";
-import Topbar from "./Topbar";
+import Attendance from "../../components/masters/Attendance";
+import Maintenance from "../../components/masters/Maintenance";
+import Visitors from "../../components/masters/Visitors";
+import Reports from "../../components/masters/Reports";
+import Dashboard from "../../components/masters/Dashboard";
+import Topbar from "../../components/pages/Topbar";
 
 const sections = [
   { id: "admin", title: "Dashboard", icon: <FaUser /> },
@@ -41,7 +42,7 @@ export default function Sidebar() {
       case "admin":
         return <Dashboard />;
       case "hostel":
-        return <HostelInfo />;
+        return <HostelListPage />;
       case "students":
         return <StudentMang />;
       case "fees":
