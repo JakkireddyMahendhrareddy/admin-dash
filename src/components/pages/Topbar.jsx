@@ -16,7 +16,7 @@ const Topbar = () => {
   };
 
   return (
-    <div className="h-15 flex justify-between items-center bg-white p-4 shadow-md">
+    <div className="h-16 z-10 flex w-full justify-between items-center bg-white p-4 shadow-md">
       {/* Welcome Message */}
       <div className="flex flex-col">
         <h1 className="text-2xl font-bold text-gray-900">
